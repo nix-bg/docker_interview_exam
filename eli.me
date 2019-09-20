@@ -1,0 +1,43 @@
+#!/bin/bash
+#Two Sum
+#Write a function that takes in an array of integers and a given integer and returns a boolean
+#Return true if any two values in the array sum up to the given integer, return false if not
+#twoSum([0, 1, 7, 9, -1, 1], 2)   == True (1 + 1 == 2)
+#twoSum([0, 1, 7, 9, -1, 1], 8)   == True (7 + 1 == 8)
+#twoSum([0, 1, 7, 9, -1, 1], 14)  == False
+#twoSum([0, 1, 7, 9, -1, 1], 142) == False
+
+twoSum() {
+#echo $1 $2
+#count=$(echo $1 | wc -w)
+#echo $count
+first_index=0
+second_index=0
+unset result
+for line in $1
+do
+	#echo $line
+	first_index=$(( $first_index + 1 ))
+	for num in $1
+	do
+		second_index=$(( $second_index+ 1 ))
+		unset sum
+		sum=$(( $line + $num ))
+		#echo $line+$num=$sum
+		if [ $2 -eq $sum ] && ! [ $first_index -eq $second_index ]
+		then
+			result=True
+			echo $result
+			return 0
+		fi
+	done
+	unset second_index
+done
+if [ -z $result ];then result=False && echo $result;return 1;fi
+}
+
+twoSum '0 1 7 9 -1 1' 2
+twoSum '0 1 7 9 -1 1' 8
+twoSum '0 1 7 9 -1 1' 14
+twoSum '0 1 7 9 -1 1' 142
+
