@@ -1,5 +1,5 @@
 **Exam for DevOps in Docker, Inc.**
-# docker_interview_exam
+
 ```
 Two Sum
 Write a function that takes in an array of integers and a given integer and returns a boolean
